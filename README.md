@@ -1,94 +1,170 @@
-# HL-Guarded-Biometric-Engine
+# Secure Healthcare Analytics Platform
 
-A fully local, Python-based healthcare analytics application built for academic use. The app combines **cybersecurity**, **healthcare computation**, and **data analysis** into a single desktop GUI. All data is stored locally, no web services, no cloud dependencies.
+A Python desktop application developed as a first-year computer science project that combines secure user authentication, healthcare analytics, database management, and data visualization within a single local-first system.
 
-## Overview
+The project was designed to explore practical software engineering concepts including cybersecurity fundamentals, GUI development, persistent data storage, and analytical data processing.
 
-The application allows users to securely register and log in, compute various health and fitness metrics, store results over time, visualize progress through historical graphs, and manage (view/delete) past records.
+## Project Overview
 
-The project is designed to demonstrate:
+This application allows users to:
 
-* Secure credential handling (hashing + salting)
-* Local database management (SQLite)
-* GUI development (Tkinter)
-* Data visualization (Matplotlib)
-* Applied healthcare calculations
+* Register and authenticate securely
+* Store and manage personal fitness records
+* Calculate key health and performance metrics
+* Track progress over time
+* Visualize historical trends through graphs
+* Manage stored records through a graphical interface
 
-## Features
+All functionality operates locally using SQLite, with no cloud services or external APIs.
 
-### Authentication (Cybersecurity)
+## Technical Highlights
 
-* Local user registration and login
-* Password hashing using PBKDF2 (SHA-256 + salt)
+### Secure Authentication System
+
+Implemented a complete user authentication workflow featuring:
+
+* User registration and login
+* PBKDF2-HMAC-SHA256 password hashing
+* Random cryptographic salt generation
+* Secure password verification using constant-time comparison
 * No plaintext password storage
 
-### Fitness Calculators (Tracked Over Time)
+### Database Management
 
-These metrics are saved to the database and visualized on historical graphs:
+Designed and implemented a local SQLite database system for:
 
-* BMI (Body Mass Index)
-* FFMI (Fat-Free Mass Index)
-* Body Fat Percentage (US Navy method)
-* VO2 Max (Cooper test)
+* User account management
+* Persistent storage of fitness records
+* Historical data retrieval
+* Record deletion and management
 
-Each metric can be viewed independently and tracked across multiple entries.
+### Desktop Application Development
 
-### Accessory Calculators (Not Tracked)
+Built a multi-window desktop application using Tkinter featuring:
 
-One-off calculators intended for immediate reference:
+* Authentication screens
+* Dashboard navigation
+* Calculator interfaces
+* Historical data management
+* Interactive graph visualization
 
-* BMR (Mifflin–St Jeor equation)
-* TDEE (based on activity multiplier)
+### Data Analysis & Visualization
 
-### Historical Graphs & Data Management
+Implemented analytical features using Matplotlib to:
 
-* Interactive graphs per metric
-* Stable index-based timelines (no timestamp glitches)
-* Table view of all past fitness entries
-* Ability to delete individual records
+* Track fitness metrics over time
+* Generate historical progress graphs
+* Visualize trends across multiple measurements
 
-## Tech Stack
+## Health & Fitness Metrics
 
-* Python 3.13
-* Tkinter (GUI)
-* SQLite (local database)
-* Matplotlib (data visualization)
+### Tracked Metrics
+
+The following metrics are calculated, stored, and visualized:
+
+* Body Mass Index (BMI)
+* Fat-Free Mass Index (FFMI)
+* Body Fat Percentage (US Navy Method)
+* VO₂ Max (Cooper Test)
+
+### Reference Calculators
+
+Additional calculations include:
+
+* Basal Metabolic Rate (BMR)
+* Total Daily Energy Expenditure (TDEE)
+
+## Technology Stack
+
+* Python 3
+* Tkinter
+* SQLite
+* Matplotlib
+
+## Key Learning Outcomes
+
+Through this project, I gained practical experience with:
+
+* Authentication and access control systems
+* Password hashing and credential security
+* Database schema design
+* SQL and SQLite integration
+* GUI development
+* Data visualization
+* Software architecture and code organization
+* Debugging and testing workflows
+
+## Future Improvements
+
+Potential future enhancements include:
+
+* Improved UI/UX design
+* Data export functionality
+* Expanded analytics and reporting
+* Automated testing
+* Cross-platform packaging and deployment
 
 ## Project Structure
 
-```
+```text
 healthcare_app.py
 /data
-  └── app.db        # SQLite database (auto-generated)
+  └── app.db
 ```
+
+* `healthcare_app.py` contains the application logic, authentication system, database interactions, calculators, and GUI.
+* `app.db` is the SQLite database automatically generated during execution and used for storing user accounts and fitness records.
 
 ## Setup & Usage
 
-1. Install dependencies:
+### Prerequisites
 
-   ```
-   pip install matplotlib
-   ```
+* Python 3.x
+* Matplotlib
 
-2. Run the application:
+### Installation
 
-   ```
-   python healthcare_app.py
-   ```
+Install the required dependency:
 
-3. Register a new user.
+```bash
+pip install matplotlib
+```
 
-4. Log in and start using the calculators.
+### Running the Application
 
-To reset the app (fresh database):
+Launch the application using:
 
-* Delete `data/app.db` while the app is closed.
+```bash
+python healthcare_app.py
+```
 
-## Academic Context
+### Getting Started
 
-This project was developed as a **computer science semester project**, integrating multiple CS domains into a cohesive, practical system. The focus is on correctness, security, and local-first design rather than production deployment.
+1. Register a new user account.
+2. Log in using your credentials.
+3. Access the available fitness and health calculators.
+4. Save fitness records to the database.
+5. View historical trends through interactive graphs.
+6. Manage stored records through the application interface.
+
+### Database Reset
+
+To start with a fresh database:
+
+1. Close the application.
+2. Delete the file:
+
+```text
+data/app.db
+```
+
+3. Restart the application.
+
+A new database will be created automatically.
+
+```
+```
 
 ## Disclaimer
 
-This application is for **educational purposes only** and does not provide medical advice.
-
+This application is intended for educational purposes only and does not provide medical advice.
