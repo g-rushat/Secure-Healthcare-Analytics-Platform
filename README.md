@@ -162,9 +162,6 @@ data/app.db
 
 A new database will be created automatically.
 
-```
-```
-
 ## Disclaimer
 
 This application is intended for educational purposes only and does not provide medical advice.
