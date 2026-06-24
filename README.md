@@ -135,7 +135,7 @@ pip install matplotlib
 Launch the application using:
 
 ```bash
-python healthcare_app.py
+python hl_app.py
 ```
 
 ### Getting Started
